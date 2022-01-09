@@ -1,18 +1,16 @@
 import random
-from functools import wraps
 
 
-def mydecor(func):
-    @wraps(func)
+def massege(func):
     def wrapper(*args, **kwargs):
+        print(f'{func.__name__} была исполнена')
         result = func(*args, **kwargs)
-        print('ggg')
         return result
 
     return wrapper
 
 
-@mydecor
+@massege
 def some_func(a, b):
     return [random.randint(0, b) for _ in range(a)]
 
