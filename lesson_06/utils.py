@@ -1,5 +1,6 @@
 import os.path
 import sqlite3
+import datetime
 
 
 def execute_query(query):
@@ -20,14 +21,13 @@ def duration_tracks():
     duration_list = []
     for j in range(1, len(records_genre) + 1):
         duration_list.append(sum([i[1] for i in records if i[0] == j]))
-    return dict(zip(map(str, records_genre), duration_list))
+    return records_genre, duration_list
 
 
 def time_format():
-    return
+    time_list = duration_tracks()[1]
+    return [str(datetime.timedelta(milliseconds=i)) for i in time_list]
 
 
-import datetime
-n= 10000000
-time_format = str(datetime.timedelta(seconds = n))
-print("Time in preferred format :-",time_format)
+def list2dict():
+    return dict(zip(map(str, duration_tracks()[0]), time_format()))
