@@ -1,6 +1,6 @@
 import os.path
 import sqlite3
-import datetime
+from datetime import datetime
 
 
 def execute_query(query):
@@ -26,7 +26,7 @@ def duration_tracks():
 
 def time_format():
     time_list = duration_tracks()[1]
-    return [str(datetime.timedelta(milliseconds=i)) for i in time_list]
+    return [str(i).strftime('%d-%m-%Y %H:%M:%S') for i in time_list]
 
 
 def list2dict():
