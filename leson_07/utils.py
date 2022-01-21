@@ -18,6 +18,14 @@ sql = 'select TrackId , Quantity , UnitPrice from invoice_items '
 sql_name = 'select TrackId , Name, UnitPrice from tracks'
 records = list(map(list, execute_query(sql)))
 records_name = list(map(list, execute_query(sql_name)))
-print(records_name)
-print(records)
-# print([records_name[i] for i in [i[0] for i in records]])
+# eeee = [i[0] for i in records]
+# print(eeee[:6])
+# print(records[:6])
+list_name = [records_name[i-1] for i in [i[0] for i in records]]
+print(list_name[:6])
+print(records[:6])
+result = []
+for k in range(len(list_name)):
+    result += list_name[k][2]* records[k][1]
+
+print(result)
