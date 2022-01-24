@@ -27,4 +27,4 @@ def list_rec2html(s_list):
     result = ''
     for i in range(len(s_list)):
         result += f'<br>Название:  "{s_list[i][0]}"  <b>  сумма:  {s_list[i][1]}</b>'
-    return result
+    return
